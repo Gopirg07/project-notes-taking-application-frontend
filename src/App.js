@@ -13,9 +13,8 @@ import Addnote from "./Components/Mobiles/Addnote";
 import Notes from "./Components/Mobiles/Notes";
 import Viewnote from "./Components/Mobiles/Viewnote";
 import { UpdateNote } from "./Components/Mobiles/UpdateNote";
-
-export const url="http://localhost:8000" 
-// export const url="https://mobile-store-be.onrender.com" 
+ 
+export const url="https://notes-taking-application-backend-yidi.onrender.com" 
 
 
 function App() {
