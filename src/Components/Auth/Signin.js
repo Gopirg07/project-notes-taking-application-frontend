@@ -28,7 +28,7 @@ export default function Signin() {
   const { values, handleChange, handleBlur, handleSubmit, errors, touched } =
     useFormik({
       initialValues: {
-        email: "gopi33@gmail.com",
+        email: "gopi.rg03@gmail.com",
         password: "gopi@321",
       },
       validationSchema: LoginSchemaValidation,
@@ -109,7 +109,7 @@ export default function Signin() {
             </div>
             <div className="creds">
             <h6>Demo Credentials : </h6>
-            <p>email : gopi33@gmail.com</p>
+            <p>email : gopi.rg03@gmail.com</p>
             <p>password : gopi@321</p>
             </div>
             <Button
