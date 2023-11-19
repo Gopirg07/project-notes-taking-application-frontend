@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import { Box, Container, IconButton, Tooltip, Typography } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
- 
-import Brightness3Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7"; 
+import TextField from "@mui/material/TextField";
+import SearchIcon from "@mui/icons-material/Search";
 
-export default function Navbar({ mode, setMode }) {
+import Brightness3Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
+
+export default function Navbar({ mode, setMode, search, setSearch }) {
+  let [value, setValue] = useState("");
   const navigate = useNavigate();
 
   const role = localStorage.getItem("role");
@@ -31,12 +33,12 @@ export default function Navbar({ mode, setMode }) {
                 mr: 2,
                 ml: 0,
                 display: { md: "flex" },
-                color:"white",
-                fontFamily:"poppins"
+                color: "white",
+                fontFamily: "poppins",
               }}
               onClick={() => navigate("/notes")}
             >
-              <h3 style={{marginBottom:"0px"}}>Notes Maker</h3>
+              <h3 style={{ marginBottom: "0px" }}>Notes Maker</h3>
             </Button>
             <Box sx={{ flexGrow: 1, display: "flex", gap: "10px" }}>
               <Button
@@ -46,19 +48,27 @@ export default function Navbar({ mode, setMode }) {
               >
                 Notes
               </Button>
- 
+
               <Button color="inherit" onClick={() => navigate("/Addnote")}>
                 Add New Note
-              </Button> 
-
+              </Button>
             </Box>
 
+            <TextField
+              id="outlined-basic"
+              label="Search"
+              variant="outlined"
+              style={{ color: "white", backgroundColor: "white" }}
+              name="search"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            > 
+            </TextField> 
             <Button
               color="inherit"
               onClick={() => setMode(!mode)}
               endIcon={mode ? <Brightness7Icon /> : <Brightness3Icon />}
-            >
-              {mode ? "light" : "dark"} Mode
+            > 
             </Button>
 
             <Tooltip title="Logout">

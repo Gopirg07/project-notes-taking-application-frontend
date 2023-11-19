@@ -19,11 +19,13 @@ export const url="https://notes-taking-application-backend-yidi.onrender.com"
 
 function App() {
   const [mode, setMode] = useState(true);
+  const [search,setSearch]=useState("")
   const darkTheme = createTheme({
     palette: {
       mode: mode ? "light" : "dark",
     },
   });
+
   return (
     <ThemeProvider theme={darkTheme}>
       <Paper sx={{marginTop:"61px" }}>  
@@ -36,10 +38,10 @@ function App() {
         <Route path="/reset-password/:id" element={<ResetPassword/>} /> 
 
  
-        <Route path="/notes" element={<Notes mode={mode} setMode={setMode}/>} />  
-        <Route path="/notes/:id" element={<Viewnote mode={mode} setMode={setMode}/>} />    
-        <Route path="/Addnote" element={<Addnote mode={mode} setMode={setMode}/>} />  
-        <Route path="/updatenote/:id" element={<UpdateNote mode={mode} setMode={setMode}/>}  />      
+        <Route path="/notes" element={<Notes mode={mode} setMode={setMode} search={search} setSearch={setSearch}/>} />  
+        <Route path="/notes/:id" element={<Viewnote mode={mode} setMode={setMode} />} />    
+        <Route path="/Addnote" element={<Addnote mode={mode} setMode={setMode} />} />  
+        <Route path="/updatenote/:id" element={<UpdateNote mode={mode} setMode={setMode} />}  />      
       <Route path="/*" element={<Navigate to="/signin"/>}/> 
       </Routes> 
         </div> 
